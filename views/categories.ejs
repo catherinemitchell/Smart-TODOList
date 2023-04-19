@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Category Page</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/categories.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script defer src="/scripts/categories.js"></script>
+  <script defer src="/scripts/header.js"></script>
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Roboto:ital,wght@0,100;0,400;0,500;1,400;1,500&display=swap');
+  </style>
+
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+    <main>
+      <h1>
+        <%= tasks[0].category_name %>
+      </h1>
+      <section class="category-container">
+        <article class="category">
+          <% for (let task of tasks){ %>
+            <div class="task-block" id='<%= task.task_id %>'>
+              <div class="task-display">
+                <div class="title">
+                  <input type="checkbox" name="<%= task.title %>">
+                  <h2 class="title-name">
+                    <%= task.title %>
+                  </h2>
+                </div>
+                <div class="task-update-options">
+                  <div class="update-toggle">
+                    <form method="POST" class="task-update-form" name='update-entry' action="/categories/updateTask/<%= task.task_id %>">
+                      <input type="text" id="task" name="newTitle" placeholder="<%= task.title %>"><br>
+                      <button type="submit"><i class="fa-solid fa-plus"></i></button>
+                    </form>
+                  </div>
+                </div>
+                <div class="task-actions">
+                  <button class="icon-btn" onclick="updateTask(`<%=task.task_id %>`)">
+                    <i class="edit action icon fa-solid fa-pen"></i>
+                  </button>
+                  <button class="icon-btn" onclick="deleteTask(`<%=task.task_id %>`)">
+                    <i class="delete action icon fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </article>
+      </section>
+    </main>
+</body>
+
+</html>
