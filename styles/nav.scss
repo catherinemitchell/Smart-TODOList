@@ -1,0 +1,23 @@
+@use 'theme';
+
+nav {
+  display: flex;
+  align-items: flex-start;
+  background-color: theme.$primaryCol;
+  align-items: center;
+  color: white;
+  height:80px;
+
+  h1 {
+    font-family: theme.$font-family-title;
+    font-size: larger;
+    @include theme.horizontal-symmetrical-margin($value: 35px)
+  }
+  h1:hover {
+    font-family: theme.$font-family-title;
+    font-size: x-large;
+    @include theme.horizontal-symmetrical-margin($value: 35px);
+    cursor: pointer;
+  }
+
+}
