@@ -1,0 +1,172 @@
+@use 'theme';
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: theme.$fontBlack;
+  @extend %white-background;
+
+  main.home {
+    display: flex;
+    flex-direction: column;
+    @include theme.symmetrical-padding($h-value: 35px, $v-value: 20px);
+
+
+    .user-input-area {
+      @include theme.vertical-symmetrical-margin($value: 20px);
+
+      #add-entry {
+        display: flex;
+        flex-direction: column;
+
+        .icon {
+          color: theme.$secondaryCol;
+          cursor: pointer;
+        }
+
+        .title-entry-section {
+          display: flex;
+          flex-direction: row;
+
+          input[type=text] {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border-bottom: 5px solid theme.$secondaryCol;
+            width: 100%;
+          }
+
+          button[type=submit] {
+            border: none;
+            background-color: transparent;
+            @include theme.horizontal-symmetrical-margin($value: 5px);
+          }
+
+          button[type=button] {
+            border: none;
+            background-color: transparent;
+            @include theme.horizontal-symmetrical-margin($value: 5px);
+          }
+        }
+
+        #category-options {
+          display: flex;
+          flex-direction: row;
+
+          label.cat-option {
+            @include theme.horizontal-symmetrical-margin($value: 5px);
+
+            input[type="radio"] {
+              display: none;
+
+              +.box {
+                padding: 5px;
+                border-radius: 5px;
+                border: 3px solid theme.$secondaryCol;
+                @include theme.vertical-symmetrical-margin($value: 5px);
+
+                span {
+                  @include theme.vertical-symmetrical-margin($value: 2px);
+                  color: theme.$secondaryCol;
+                }
+              }
+
+              &:checked {
+                +.box {
+                  padding: 5px;
+                  border-radius: 5px;
+                  border: 3px solid theme.$secondaryCol;
+                  background-color: theme.$secondaryCol;
+                  @include theme.vertical-symmetrical-margin($value: 5px);
+
+                  span {
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    .category-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      article.category {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        min-width: 300px;
+        min-height: 200px;
+        margin: 15px;
+        padding: 15px;
+        border-radius: 20px;
+
+        h2 {
+          @include theme.vertical-symmetrical-margin($value: 5px);
+          @include theme.horizontal-symmetrical-margin($value: 10px);
+          font-family: theme.$font-family-regular;
+          align-self: center;
+        }
+        .task-list-element{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          @include theme.vertical-symmetrical-margin($value: 5px);
+
+          .icon{
+            @include theme.horizontal-symmetrical-margin($value: 5px);
+
+          }
+        }
+      }
+
+      article.category:hover {
+        box-shadow: 10px 10px 0px 1px theme.$secondaryCol;
+        cursor: pointer;
+      }
+
+    }
+
+  }
+
+  main.landing {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    @include theme.symmetrical-padding($h-value: 35px, $v-value: 20px);
+
+    img {
+      max-width: 400px;
+      margin: 20px;
+      object-fit: contain;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-family: theme.$font-family-title;
+    }
+
+    section.login-prompt {
+      margin: 20px;
+
+      button.login {
+        border: none;
+        background-color: theme.$secondaryCol;
+        color: white;
+        padding: 5px;
+        border-radius: 20px;
+        cursor: pointer;
+        span {
+          @include theme.horizontal-symmetrical-margin($value: 10px);
+        }
+      }
+    }
+
+  }
+}
