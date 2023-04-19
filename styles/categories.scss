@@ -1,0 +1,84 @@
+@use 'theme';
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: theme.$fontBlack;
+  @extend %white-background;
+
+  main {
+    @include theme.horizontal-symmetrical-margin($value: 35px);
+    display: flex;
+    flex-direction: column;
+
+
+    .category-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      article.category {
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        min-height: 300px;
+        margin: 5px;
+        padding: 30px;
+        border-radius: 20px;
+
+        .task-block {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+
+          .title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+          }
+
+          .task-actions {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .action {
+              border-radius: 10px;
+              margin: 5px;
+              padding: 5px;
+              background-color: transparent;
+
+              border: 3px solid theme.$secondaryCol;
+            }
+            .action:hover.icon:hover{
+              background-color: theme.$secondaryCol;
+//border: 3px inset theme.$secondaryCol;
+            }
+            .icon{
+              color:theme.$secondaryCol;
+            }
+            .icon:hover{
+              color: white;
+            }
+          }
+
+          h2 {
+            @include theme.vertical-symmetrical-margin($value: 5px);
+            @include theme.horizontal-symmetrical-margin($value: 10px);
+            font-family: theme.$font-family-regular;
+            align-self: center;
+          }
+        }
+
+
+
+      }
+    }
+
+  }
+
+
+}
