@@ -1,0 +1,53 @@
+$font-family-title: 'Lexend', sans-serif;
+$font-family-regular: 'Roboto', sans-serif;
+
+$side-symmetrical-margin: 0px 50px 0px 50px;
+
+$primaryCol: #DE1A1A;
+$secondaryCol: #D78521;
+$secondaryCol2:#574F2A;
+$fontBlack: #011627;
+
+@mixin horizontal-symmetrical-margin($value: 10px) {
+  margin-left: $value ;
+  margin-right: $value;
+}
+
+@mixin vertical-symmetrical-margin($value: 10px) {
+  margin-top: $value ;
+  margin-bottom: $value;
+}
+
+@mixin symmetrical-margin($h-value: 10px, $v-value:10px) {
+  margin-top: $v-value;
+  margin-bottom: $v-value;
+  margin-left: $h-value ;
+  margin-right: $h-value;
+}
+
+@mixin symmetrical-padding($h-value: 10px, $v-value:10px) {
+  padding-top: $v-value;
+  padding-bottom: $v-value;
+  padding-left: $h-value ;
+  padding-right: $h-value;
+}
+
+@mixin vertical-symmetrical-padding($value: 10px) {
+  padding-top: $value ;
+  padding-bottom: $value;
+}
+@mixin horizontal-symmetrical-padding($value: 10px) {
+ padding-left: $value ;
+ padding-right: $value;
+}
+
+%white-background {
+  background-color: #f4f1f1;
+/*   background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
+ */
+}
+%profile-background {
+  background-color: #de5752;
+/*   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+ */
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/home.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Roboto:ital,wght@0,100;0,400;0,500;1,400;1,500&display=swap");
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script defer src="/scripts/home.js"></script>
+  <script defer src="/scripts/header.js"></script>
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+    <main class="home">
+      <section class="user-input-area">
+        <form method="POST" id="add-entry" action="/home/new-task">
+          <div class="title-entry-section">
+            <input type="text" id="task" name="title" required maxlength="200" pattern="^\S.{0,198}\S?$"
+              title="Title cannot be blank." /><br />
+            <button type="submit"><i class="icon fa-xl fa-solid fa-plus"></i></button>
+            <button id="category-options-button" type="button" class="">
+              <i class=" icon fa-xl fa-solid fa-angles-down"></i></button>
+          </div>
+
+          <div id="category-options" style="display:none;">
+            <% for (let cat of categories) { %>
+              <label class="cat-option">
+                <input type="radio" name="cat_id" value=<%=cat.category_id%> class='cat-option'/>
+                <div class="box">
+                  <span>
+                    <%= cat.category_name%>
+                  </span>
+                </div>
+              </label>
+              <% } %>
+          </div>
+
+        </form>
+      </section>
+      <section class="category-container"></section>
+    </main>
+</body>
+
+</html>
